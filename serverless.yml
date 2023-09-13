@@ -59,3 +59,15 @@ functions:
       - httpApi:
           path: /user/{id}
           method: get
+  updateUser:
+    handler: src/user/update.update
+    events:
+      - httpApi:
+          path: /user/{id}
+          method: put
+  deleteUser:
+    handler: src/user/delete.delete
+    events:
+      - httpApi:
+          path: /user/{id}
+          method: delete
