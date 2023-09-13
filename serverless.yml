@@ -41,15 +41,21 @@ functions:
       - httpApi:
           path: /
           method: get
-  getAllUsers:
-    handler: src/Users/listUsers.getAllUsers
+  findAllUsers:
+    handler: src/user/findAll.findAll
     events:
       - httpApi:
-          path: /listUsers
+          path: /user
           method: get
   createUser:
-    handler: src/Users/createUser.createUser
+    handler: src/user/create.create
     events:
       - httpApi:
-          path: /createUser
+          path: /user
           method: post
+  findByIdUser:
+    handler: src/user/findById.findById
+    events:
+      - httpApi:
+          path: /user/{id}
+          method: get

@@ -4,7 +4,7 @@ AWS.config.update({region: "eu-est-01", endpoint: "http://localhost:8000"});
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 const TableName = "userTable"
 
-module.exports.createUser = async (event) => {
+module.exports.create = async (event) => {
 
     const {username, password} = JSON.parse(event.body);
     const id = v4();
