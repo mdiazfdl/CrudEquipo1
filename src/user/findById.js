@@ -8,5 +8,11 @@ module.exports.findById = async (event) =>{
     const { id } = event.pathParameters;
 
     const user =  await dynamodb.get({TableName,Key:{id}}).promise()
-    return {status: 200, body: user.Item}
+
+    if (Object.keys(user).length === 0){
+        return {statusCode: 500,body: JSON.stringify({message:'El usuario no fue encontrado'})}
+    }else{
+        return user.Item
+    }
+
 }
